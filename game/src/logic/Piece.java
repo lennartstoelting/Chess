@@ -1,14 +1,31 @@
 package logic;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * general Piece
  * always has attribute white or black
  */
 public abstract class Piece {
+
     public boolean white;
+    private BufferedImage Image;
 
     public Piece(boolean white) {
         this.white = white;
+    }
+
+    private void loadImage() {
+        try {
+            if (!white) {
+                Image = ImageIO.read(new File("assets/Chess_pieces/bp.jpg"));
+            }
+        } catch (IOException exc) {
+            System.out.println("Error opening image file: " + exc.getMessage());
+        }
     }
 
     /**
@@ -20,11 +37,13 @@ public abstract class Piece {
         Class<?> enclosingClass = getClass().getEnclosingClass();
         String tmp;
         if (enclosingClass != null) {
-            tmp = enclosingClass.getName().replace("Pieces.","");
+            tmp = enclosingClass.getName().replace("Pieces.","").substring(0, 1);
+        } else if (getClass().getName() == "Pieces.Knight") {
+            tmp = "N";
         } else {
-            tmp = getClass().getName().replace("Pieces.","");
+            tmp = getClass().getName().replace("Pieces.", "").substring(0, 1);
         }
-        if (white) return "white " + tmp;
-        else return "black " + tmp;
+        if (white) return "w" + tmp;
+        else return "b" + tmp;
     }
 }

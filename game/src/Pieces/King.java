@@ -1,5 +1,4 @@
 package Pieces;
-
 import logic.Piece;
 
 public class King extends Piece {

@@ -15,15 +15,15 @@ public class Tiles {
     public Tiles(Graphics g) { this.g = g; }
 
     public void drawBlankTiles(int tileSize) {
-        boolean dark = true;
+        boolean white = true;
         for (int i = 1; i <= 8; i ++) {
             for (int j = 1; j <= 8; j ++) {
-                if (dark) g.setColor(DARK_TILE);
-                else g.setColor(LIGHT_TILE);
+                if (white) g.setColor(LIGHT_TILE);
+                else g.setColor(DARK_TILE);
                 g.fillRect(i * tileSize, j * tileSize, tileSize, tileSize);
-                dark = !dark;
+                white = !white;
             }
-            dark = !dark;
+            white = !white;
         }
     }
 }
