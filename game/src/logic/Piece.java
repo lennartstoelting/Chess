@@ -31,12 +31,15 @@ public abstract class Piece {
      * @throws IOException if file wasn't found or couldn't correctly load
      */
     public BufferedImage getImage() throws IOException {
-        BufferedImage img = ImageIO.read(new File("assets/Chess_piece_unformatted/" + this.getFileName()));
-        return resize(img, 64, 64);
+        BufferedImage img = ImageIO.read(new File("assets/Chess_pieces/" + this.getFileName()));
+        // return resize(img, 64, 64);          // bad runtime, change ^pathname^ if playing around with it
+        return img;
     }
 
     /**
      * function to resize any png so that a varying board size can be accounted for
+     *
+     * currently very bad runtime when trying to render board
      * @param img Image to be resized
      * @param newW new Width
      * @param newH new Hight
