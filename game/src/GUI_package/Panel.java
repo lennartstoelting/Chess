@@ -18,7 +18,7 @@ import java.awt.event.KeyListener;
  */
 public class Panel extends JPanel implements ActionListener, KeyListener {
 
-    private int tileSize = 64;
+    private final int tileSize = 64;
     public Board boardLayout;
 
     public Panel() {

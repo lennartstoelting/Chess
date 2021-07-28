@@ -1,7 +1,5 @@
 package logic;
 
-import java.util.Arrays;
-
 /**
  * board with fixed dimensions
  * consisting of array of Pieces

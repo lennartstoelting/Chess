@@ -29,7 +29,8 @@ public abstract class Piece {
     }
 
     /**
-     * just for nicer debugging, doesn't have a purpouse
+     * just for nicer debugging, doesn't have a purpose
+     * returns bK for black King and wN for white Knight (this case has to be made because of the same starting letters)
      * @return good looking description of Piece
      */
     @Override
@@ -38,7 +39,7 @@ public abstract class Piece {
         String tmp;
         if (enclosingClass != null) {
             tmp = enclosingClass.getName().replace("Pieces.","").substring(0, 1);
-        } else if (getClass().getName() == "Pieces.Knight") {
+        } else if (getClass().getName().equals("Pieces.Knight")) {
             tmp = "N";
         } else {
             tmp = getClass().getName().replace("Pieces.", "").substring(0, 1);
