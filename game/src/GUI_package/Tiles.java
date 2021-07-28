@@ -20,11 +20,11 @@ public class Tiles {
      */
     public void drawBlankTiles(int tileSize) {
         boolean white = true;
-        for (int i = 1; i <= 8; i ++) {
-            for (int j = 1; j <= 8; j ++) {
+        for (int i = 0; i < 8; i ++) {
+            for (int j = 0; j < 8; j ++) {
                 if (white) g.setColor(LIGHT_TILE);
                 else g.setColor(DARK_TILE);
-                g.fillRect(i * tileSize, j * tileSize, tileSize, tileSize);
+                g.fillRect(j * tileSize, i * tileSize, tileSize, tileSize);
                 white = !white;
             }
             white = !white;

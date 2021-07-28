@@ -10,10 +10,11 @@ public class GUI_test {
      * puts a pawn in top right corner, tries to show the finished board
      */
     @Test
-    public void testEmptyBoard() {
+    public void testRandomBoard() {
         GUI test = new GUI();
         Board board = new Board();
-        board.positions[0][0] = new Pawn(false);
+        board.positions[0][0] = new Pawn(true);
+        board.positions[7][7] = new Pawn(false);
         try {
             test.drawFilledBoard(board);
             Thread.sleep(5000);

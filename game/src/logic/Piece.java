@@ -1,6 +1,9 @@
 package logic;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -15,11 +18,39 @@ public abstract class Piece {
         this.white = white;
     }
 
-    /**
-     * standard getImg() for the individual pieces to override
-     */
-    public BufferedImage getImg() throws IOException {
+    public String getFileName() {
         return null;
+    }
+
+    /**
+     * first instance of attempt at loading the image of a black pawn from the assets folder
+     * very static still
+     *
+     * intended to only call for graphic but never store for the actual algorithm
+     * @return returns the image as a BufferedImage
+     * @throws IOException if file wasn't found or couldn't correctly load
+     */
+    public BufferedImage getImage() throws IOException {
+        BufferedImage img = ImageIO.read(new File("assets/Chess_piece_unformatted/" + this.getFileName()));
+        return resize(img, 64, 64);
+    }
+
+    /**
+     * function to resize any png so that a varying board size can be accounted for
+     * @param img Image to be resized
+     * @param newW new Width
+     * @param newH new Hight
+     * @return resized Image
+     */
+    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
     }
 
     /**

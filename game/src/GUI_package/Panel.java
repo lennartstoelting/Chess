@@ -23,7 +23,7 @@ public class Panel extends JPanel {
      * creates a Panel with the size of an 8*8 field with a margin of one tile size around the corners
      */
     public Panel() {
-        setPreferredSize(new Dimension(tileSize * 10, tileSize * 10));
+        setPreferredSize(new Dimension(tileSize * 8, tileSize * 8));
         setBackground(Color.black);
     }
 
@@ -39,7 +39,7 @@ public class Panel extends JPanel {
     /**
      * classic override
      * Creates Tiles object
-     * currently puts image of board.positions[0][0] in place, very static
+     * checks if there is pieces on the board, displays any piece it can find
      * @param g
      */
     @Override
@@ -49,11 +49,16 @@ public class Panel extends JPanel {
         Tiles tiles = new Tiles(g);
         tiles.drawBlankTiles(tileSize);
 
-        try {
-            g.drawImage(boardLayout.positions[0][0].getImg(), 66, 66, null);
-        } catch (IOException e) {
-            System.out.println("Some piece didn't load correctly");
+        for (int i = 0; i < 8; i ++) {
+            for (int j = 0; j < 8; j ++) {
+                if (boardLayout.positions[j][i] != null) {
+                    try {
+                        g.drawImage(boardLayout.positions[j][i].getImage(), j * 64, i * 64, null);
+                    } catch (IOException e) {
+                        System.out.println("Some piece didn't load correctly");
+                    }
+                }
+            }
         }
     }
-
 }
