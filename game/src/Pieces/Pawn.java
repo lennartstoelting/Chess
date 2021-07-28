@@ -2,6 +2,7 @@ package Pieces;
 import logic.Piece;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,10 +22,18 @@ public class Pawn extends Piece {
      * @throws IOException if file wasn't found or couldn't correctly load
      */
     public BufferedImage getImg() throws IOException {
-        try {
-            return ImageIO.read(new File("assets/Chess_pieces/bp.png"));
-        } catch (IOException ex) {
-            throw ex;
-        }
+        BufferedImage img = ImageIO.read(new File("assets/Chess_piece_unformated/bp.png"));
+        return resize(img, 60, 60);
+    }
+
+    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
     }
 }
