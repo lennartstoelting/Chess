@@ -14,6 +14,10 @@ public class Tiles {
     // constructor
     public Tiles(Graphics g) { this.g = g; }
 
+    /**
+     * loops through the 8x8 board to create alternating colored tiles
+     * @param tileSize size of a tile so this can be adjusted later on
+     */
     public void drawBlankTiles(int tileSize) {
         boolean white = true;
         for (int i = 1; i <= 8; i ++) {

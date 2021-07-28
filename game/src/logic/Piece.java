@@ -1,8 +1,6 @@
 package logic;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -12,20 +10,16 @@ import java.io.IOException;
 public abstract class Piece {
 
     public boolean white;
-    private BufferedImage Image;
 
     public Piece(boolean white) {
         this.white = white;
     }
 
-    private void loadImage() {
-        try {
-            if (!white) {
-                Image = ImageIO.read(new File("assets/Chess_pieces/bp.jpg"));
-            }
-        } catch (IOException exc) {
-            System.out.println("Error opening image file: " + exc.getMessage());
-        }
+    /**
+     * standard getImg() for the individual pieces to override
+     */
+    public BufferedImage getImg() throws IOException {
+        return null;
     }
 
     /**

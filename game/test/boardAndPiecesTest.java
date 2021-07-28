@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 public class boardAndPiecesTest {
 
+    /**
+     * tests if the pieces get constructed correctly and if they are in the right spot on the board
+     */
     @Test
     public void piecesInit() {
         Board b = new Board();

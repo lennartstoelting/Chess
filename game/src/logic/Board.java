@@ -20,4 +20,22 @@ public class Board {
     /**
      * copy constructor next
      */
+
+    /**
+     * simple toString replacement so it's easier to look at in the debugger
+     * @return String to be printed in debugger
+     */
+    @Override
+    public String toString() {
+        String horizontalLine = "+--+--+--+--+--+--+--+--+";
+        StringBuilder tmpReturn = new StringBuilder("Board of Dimension" + nX + "x" + nY + "\n" + horizontalLine + "\n");
+        for (int i = 0; i < nY; i ++) {
+            for (int j = 0; j < nX; j ++) {
+                if (positions[j][i] == null) tmpReturn.append("|  ");
+                else tmpReturn.append("|").append(positions[j][i]);
+            }
+            tmpReturn.append("|\n").append(horizontalLine).append("\n");
+        }
+        return tmpReturn.toString();
+    }
 }

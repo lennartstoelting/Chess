@@ -27,21 +27,23 @@ public class GUI {
         Panel panel = new Panel();
 
         frame.add(panel);
-        frame.addKeyListener(panel);
         frame.pack();
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    public void drawfilledBoard(Board board) {
+    /**
+     * initializes the drawing of a board that is passed
+     * @param board
+     */
+    public void drawFilledBoard(Board board) {
         JFrame frame = new JFrame(nameOfGame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Panel panel = new Panel(board);
 
         frame.add(panel);
-        frame.addKeyListener(panel);
         frame.pack();
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
