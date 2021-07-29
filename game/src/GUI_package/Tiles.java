@@ -19,11 +19,11 @@ public class Tiles {
      * @param tileSize size of a tile so this can be adjusted later on
      */
     public void drawBlankTiles(int tileSize) {
-        for (int i = 0; i < 8; i ++) {
-            for (int j = 0; j < 8; j ++) {
-                if ((i + j) % 2 == 0) g.setColor(LIGHT_TILE);
+        for (int rank = 0; rank < 8; rank ++) {
+            for (int file = 0; file < 8; file ++) {
+                if ((rank + file) % 2 == 0) g.setColor(LIGHT_TILE);
                 else g.setColor(DARK_TILE);
-                g.fillRect(j * tileSize, i * tileSize, tileSize, tileSize);
+                g.fillRect(file * tileSize, rank * tileSize, tileSize, tileSize);
             }
         }
     }

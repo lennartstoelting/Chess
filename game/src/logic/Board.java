@@ -6,15 +6,13 @@ package logic;
  */
 public class Board {
 
-    public final int nX = 8;
-    public final int nY = 8;
-    public Piece[][] boardPositionIndex;
+    public Piece[] boardPositionIndex;
 
     /**
      * constructor for an empty Board
      */
     public Board() {
-        boardPositionIndex = new Piece[nX][nY];
+        boardPositionIndex = new Piece[64];
     }
 
     /**
@@ -28,11 +26,11 @@ public class Board {
     @Override
     public String toString() {
         String horizontalLine = "+--+--+--+--+--+--+--+--+";
-        StringBuilder tmpReturn = new StringBuilder("Board of Dimension" + nX + "x" + nY + "\n" + horizontalLine + "\n");
-        for (int i = 0; i < nY; i ++) {
-            for (int j = 0; j < nX; j ++) {
-                if (boardPositionIndex[j][i] == null) tmpReturn.append("|  ");
-                else tmpReturn.append("|").append(boardPositionIndex[j][i]);
+        StringBuilder tmpReturn = new StringBuilder(horizontalLine + "\n");
+        for (int rank = 0; rank < 8; rank ++) {
+            for (int file = 0; file < 8; file ++) {
+                if (boardPositionIndex[rank * 8 + file] == null) tmpReturn.append("|  ");
+                else tmpReturn.append("|").append(boardPositionIndex[rank * 8 + file]);
             }
             tmpReturn.append("|\n").append(horizontalLine).append("\n");
         }

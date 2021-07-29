@@ -49,11 +49,11 @@ public class Panel extends JPanel {
         Tiles tiles = new Tiles(g);
         tiles.drawBlankTiles(tileSize);
 
-        for (int i = 0; i < 8; i ++) {
-            for (int j = 0; j < 8; j ++) {
-                if (boardLayout.boardPositionIndex[j][i] != null) {
+        for (int rank = 0; rank < 8; rank ++) {
+            for (int file = 0; file < 8; file ++) {
+                if (boardLayout.boardPositionIndex[rank * 8 + file] != null) {
                     try {
-                        g.drawImage(boardLayout.boardPositionIndex[j][i].getImage(), j * 64, i * 64, null);
+                        g.drawImage(boardLayout.boardPositionIndex[rank * 8 + file].getImage(), file * 64, rank * 64, null);
                     } catch (IOException e) {
                         System.out.println("Some piece didn't load correctly");
                     }
