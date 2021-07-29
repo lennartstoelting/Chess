@@ -11,7 +11,6 @@ public class GUI_test {
      */
     @Test
     public void testExampleBoard() {
-        GUI test = new GUI();
         Board board = new Board();
         board.boardPositionIndex[0] = new King(true);
         board.boardPositionIndex[1] = new King(false);
@@ -25,9 +24,10 @@ public class GUI_test {
         board.boardPositionIndex[33] = new Rook(false);
         board.boardPositionIndex[40] = new Pawn(true);
         board.boardPositionIndex[41] = new Pawn(false);
+
         try {
-            test.drawFilledBoard(board);
-            Thread.sleep(15000);
+            GUI test = new GUI(board);
+            Thread.sleep(20000);
         } catch (Exception e) {
             System.out.println("Something definitely went wrong");
         }
