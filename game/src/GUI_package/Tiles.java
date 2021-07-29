@@ -19,15 +19,12 @@ public class Tiles {
      * @param tileSize size of a tile so this can be adjusted later on
      */
     public void drawBlankTiles(int tileSize) {
-        boolean white = true;
         for (int i = 0; i < 8; i ++) {
             for (int j = 0; j < 8; j ++) {
-                if (white) g.setColor(LIGHT_TILE);
+                if ((i + j) % 2 == 0) g.setColor(LIGHT_TILE);
                 else g.setColor(DARK_TILE);
                 g.fillRect(j * tileSize, i * tileSize, tileSize, tileSize);
-                white = !white;
             }
-            white = !white;
         }
     }
 }

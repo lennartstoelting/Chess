@@ -27,7 +27,7 @@ public class GUI_test {
         board.positions[1][5] = new Pawn(false);
         try {
             test.drawFilledBoard(board);
-            Thread.sleep(50000);
+            Thread.sleep(5000);
         } catch (Exception e) {
             System.out.println("Something definitely went wrong");
         }
