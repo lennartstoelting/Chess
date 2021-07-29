@@ -51,9 +51,9 @@ public class Panel extends JPanel {
 
         for (int i = 0; i < 8; i ++) {
             for (int j = 0; j < 8; j ++) {
-                if (boardLayout.positions[j][i] != null) {
+                if (boardLayout.boardPositionIndex[j][i] != null) {
                     try {
-                        g.drawImage(boardLayout.positions[j][i].getImage(), j * 64, i * 64, null);
+                        g.drawImage(boardLayout.boardPositionIndex[j][i].getImage(), j * 64, i * 64, null);
                     } catch (IOException e) {
                         System.out.println("Some piece didn't load correctly");
                     }

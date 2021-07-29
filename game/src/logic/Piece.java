@@ -31,29 +31,7 @@ public abstract class Piece {
      * @throws IOException if file wasn't found or couldn't correctly load
      */
     public BufferedImage getImage() throws IOException {
-        BufferedImage img = ImageIO.read(new File("assets/Chess_pieces/" + this.getFileName()));
-        // return resize(img, 64, 64);          // bad runtime, change ^pathname^ if playing around with it
-        return img;
-    }
-
-    /**
-     * function to resize any png so that a varying board size can be accounted for
-     *
-     * currently very bad runtime when trying to render board
-     * @param img Image to be resized
-     * @param newW new Width
-     * @param newH new Hight
-     * @return resized Image
-     */
-    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
-        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g2d = dimg.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
-        g2d.dispose();
-
-        return dimg;
+        return ImageIO.read(new File("assets/Chess_pieces_64x64/" + this.getFileName()));
     }
 
     /**

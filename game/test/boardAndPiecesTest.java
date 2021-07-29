@@ -10,9 +10,9 @@ public class boardAndPiecesTest {
     @Test
     public void piecesInit() {
         Board b = new Board();
-        b.positions[0][1] = new Knight(true);
-        System.out.println(b.positions[0][1]);
-        b.positions[1][1] = new King(false);
-        System.out.println(b.positions[1][1]);
+        b.boardPositionIndex[0][1] = new Knight(true);
+        System.out.println(b.boardPositionIndex[0][1]);
+        b.boardPositionIndex[1][1] = new King(false);
+        System.out.println(b.boardPositionIndex[1][1]);
     }
 }
